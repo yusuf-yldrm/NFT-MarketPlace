@@ -9,7 +9,7 @@ const Stack = createStackNavigator();
 const theme = {
   ...DefaultTheme,
   colors: {
-    ...DefaultTheme,
+    ...DefaultTheme.colors,
     background: "transparent",
   },
 };

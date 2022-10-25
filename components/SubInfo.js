@@ -1,4 +1,4 @@
-import { View, Text, Image, DevSettings } from "react-native";
+import { View, Text, Image } from "react-native";
 import React from "react";
 import { assets, COLORS, FONTS, SHADOWS, SIZES } from "../constants";
 
@@ -47,9 +47,17 @@ export const EthPrice = ({ price }) => {
       <Image
         source={assets.eth}
         resizeMode="contain"
-        style={{ width: 20, height: 20 }}
+        style={{ width: 20, height: 20, marginRight: 2 }}
       />
-      <Text>{price}</Text>
+      <Text
+        style={{
+          fontFamily: FONTS.medium,
+          fontSize: SIZES.font,
+          color: COLORS.primary,
+        }}
+      >
+        {price}
+      </Text>
     </View>
   );
 };
@@ -57,10 +65,10 @@ export const EthPrice = ({ price }) => {
 export const People = ({}) => {
   return (
     <View style={{ flexDirection: "row" }}>
-      {[assets.person02, assets.person01, assets.person03, assets.person04].map(
-        (imgUrl, i) => (
-          <ImageCmp source={imgUrl} index={i} />
-        )
+      {[assets.person02, assets.person03, assets.person04].map(
+        (imgUrl, index) => {
+          return <ImageCmp source={imgUrl} index={`People-${index}`} />;
+        }
       )}
     </View>
   );
@@ -108,7 +116,7 @@ export const SubInfo = ({}) => {
       style={{
         width: "100%",
         paddingHorizontal: SIZES.font,
-        marginTop: SIZES.extraLarge,
+        marginTop: -SIZES.extraLarge,
         flexDirection: "row",
         justifyContent: "space-between",
       }}
